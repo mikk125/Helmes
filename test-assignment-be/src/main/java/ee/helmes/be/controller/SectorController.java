@@ -17,8 +17,8 @@ public class SectorController {
     private SectorService sectorService;
 
     @GetMapping("/sectors")
-    public List<Sector> getSectors() {
-        return sectorService.getAllSectors();
+    public List<Sector> findSectors() {
+        return sectorService.findAllSectors();
     }
 
 }

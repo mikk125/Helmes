@@ -16,7 +16,7 @@ public class RegistrationsController {
     private RegistrationService registrationService;
 
     @GetMapping
-    public List<RegistrationDTO> getRegistrations() {
+    public List<RegistrationDTO> findRegistrations() {
         return this.registrationService.findAllRegistrations();
     }
 

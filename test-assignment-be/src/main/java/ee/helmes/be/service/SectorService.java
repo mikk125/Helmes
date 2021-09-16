@@ -16,7 +16,7 @@ public class SectorService {
     @Autowired
     private SectorRepository sectorRepository;
 
-    public List<Sector> getAllSectors() {
+    public List<Sector> findAllSectors() {
         return this.getSectors(this.sectorRepository.findAll().stream().filter(s -> s.getParent() == null).collect(Collectors.toList()));
     }
 
