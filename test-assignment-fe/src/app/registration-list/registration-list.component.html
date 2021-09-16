@@ -1,0 +1,19 @@
+<div *ngIf="registrations.length > 0">
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Terms</th>
+    <th>Sectors</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let registration of registrations" (click)="goToRegistration(registration.id)">
+    <td>{{registration.name}}</td>
+    <td>{{registration.terms}}</td>
+    <td><p *ngFor="let sector of registration.sectors">{{sector.text}}</p></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<div *ngIf="registrations.length === 0" class="alert alert-info">No registrations were found</div>
