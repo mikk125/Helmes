@@ -97,14 +97,17 @@ export class RegistrationFormComponent implements OnInit {
 
   containsSameGroupSectors(): void {
     this.containsSameSectors = false;
-    let hashSet = this.getParentsHashSet();
-    for (let currentKey1 of Object.keys(hashSet)) {
-      for (let currentKey2 of Object.keys(hashSet)) {
-        let array1 = hashSet[Number(currentKey1)];
-        let array2 = hashSet[Number(currentKey2)];
-        if (currentKey1 !== currentKey2 && array1.filter(s => s.parentSectorId === null)[0].id === array2.filter(s => s.parentSectorId === null)[0].id) {
-          let intersection = array1.filter(v => array2.includes(v));
-          let smallerParentsArray = (array1.length < array2.length) ? array1 : (array2.length < array1.length) ? array2 : null;
+    let parentsHashSet = this.getParentsHashSet();
+    for (let currentKey1 of Object.keys(parentsHashSet)) {
+      for (let currentKey2 of Object.keys(parentsHashSet)) {
+        let key1Parents = parentsHashSet[Number(currentKey1)];
+        let key2Parents = parentsHashSet[Number(currentKey2)];
+        if (
+          currentKey1 !== currentKey2 &&
+          key1Parents.filter(s => s.parentSectorId === null)[0].id === key2Parents.filter(s => s.parentSectorId === null)[0].id
+        ) {
+          let intersection = key1Parents.filter(v => key2Parents.includes(v));
+          let smallerParentsArray = (key1Parents.length < key2Parents.length) ? key1Parents : (key2Parents.length < key1Parents.length) ? key2Parents : null;
           if (JSON.stringify(intersection.sort()) === JSON.stringify(smallerParentsArray?.sort())) {
             this.containsSameSectors = true;
             break;
