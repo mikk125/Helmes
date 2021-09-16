@@ -13,10 +13,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ee.helmes</groupId>
-	<artifactId>test-assigment</artifactId>
+	<artifactId>test-assignment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>test-assigment</name>
-	<description>Test assigment project for Helmes</description>
+	<name>test-assignment</name>
+	<description>Test assignment project for Helmes</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
